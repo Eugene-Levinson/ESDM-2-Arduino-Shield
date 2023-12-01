@@ -71,6 +71,9 @@ void setup() {
 
 void loop() {
 
+  // Get light sensor value
+  LightSensorValue = analogRead(TSL257_PIN);
+
   // Read the HIH6120 sensor
   HIH6120data HumTempData = readHIH6120();
 
@@ -79,7 +82,11 @@ void loop() {
   Serial.print(HumTempData.humidity);
   Serial.print("%, Temperature: ");
   Serial.print(HumTempData.temperature);
-  Serial.println("C");
+  Serial.print("C");
+  Serial.print(", Light: ");
+  Serial.println(LightSensorValue);
+  
+
 
 
   // Wait 100ms
